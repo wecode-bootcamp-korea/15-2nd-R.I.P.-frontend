@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+export const SIGN_UP_PHONECHECK =
+  "http://13.209.17.252:8000/user/signup/sms_authentication";
 
-class config extends Component {
-  render() {
-    return <div>1</div>;
-  }
-}
+export const FINAL_SIGNUP = "http://13.209.17.252:8000/user/signup";
 
-export default config;
+export const PHONE_CHECK = "http://13.209.17.252:8000/user/signup/sms_request";
+export const LOGIN_COMMON = "http://13.209.17.252:8000/user/signin";
+export const KAKAO_LOGIN = "http://13.209.17.252:8000/user/kakao-signin";
+export const KAKAO_SIGNUP = "http://13.209.17.252:8000/user/kakao-signup";
