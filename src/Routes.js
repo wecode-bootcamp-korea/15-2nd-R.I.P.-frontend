@@ -5,19 +5,31 @@ import Navigation from "./Components/Navigation/Navigation";
 import Main from "./Pages/Main/Main";
 import SignIn from "./Pages/SignIn/SignIn";
 import SignUp from "./Pages/SignUp/SignUp";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import reset from "styled-reset";
+import theme from "./Styles/theme";
+
+const GlobalStyle = createGlobalStyle`
+  ${reset}
+`;
 
 class Routes extends React.Component {
   render() {
     return (
-      <Router>
-        <Navigation />
-        <Switch>
-          <Route exact path="/" component={Main} />
-          <Route exact path="/SignIn" component={SignIn} />
-          <Route exact path="/SignUp" component={SignUp} />
-        </Switch>
-        <Footer />
-      </Router>
+      <>
+        <GlobalStyle />
+        <Router>
+          <ThemeProvider theme={theme}>
+            <Navigation />
+            <Switch>
+              <Route exact path="/" component={Main} />
+              <Route exact path="/SignIn" component={SignIn} />
+              <Route exact path="/SignUp" component={SignUp} />
+            </Switch>
+            <Footer />
+          </ThemeProvider>
+        </Router>
+      </>
     );
   }
 }
