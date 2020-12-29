@@ -9,6 +9,7 @@ import StandardSignUp from "./Pages/SignUp/StandardSignUp";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import reset from "styled-reset";
 import theme from "./Styles/theme";
+import CategoryNav from "./Components/Navigation/CategoryNav";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -23,7 +24,11 @@ class Routes extends React.Component {
           <ThemeProvider theme={theme}>
             {/* <Navigation /> */}
             <Switch>
+<<<<<<< HEAD
               <Route exact path="/StandardSignUp" component={StandardSignUp} />
+=======
+              <Route exact path="/CategoryNav" component={CategoryNav} />
+>>>>>>> 3ea23ac... Modify: 코드 리팩토링 완료
               <Route exact path="/" component={Main} />
               <Route exact path="/SignIn" component={SignIn} />
               <Route exact path="/SignUp" component={SignUp} />
