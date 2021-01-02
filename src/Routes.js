@@ -8,6 +8,8 @@ import SignUp from "./Pages/SignUp/SignUp";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import reset from "styled-reset";
 import theme from "./Styles/theme";
+import Feed from "./Pages/Feed/Feed";
+import FeedPage from "./Pages/Feed/FeedPage";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -20,13 +22,15 @@ class Routes extends React.Component {
         <GlobalStyle />
         <Router>
           <ThemeProvider theme={theme}>
-            <Navigation />
+            {/* <Navigation /> */}
             <Switch>
+              <Route exact path="/FeedPage" component={FeedPage} />
+              <Route exact path="/Feed" component={Feed} />
               <Route exact path="/" component={Main} />
               <Route exact path="/SignIn" component={SignIn} />
               <Route exact path="/SignUp" component={SignUp} />
             </Switch>
-            <Footer />
+            {/* <Footer /> */}
           </ThemeProvider>
         </Router>
       </>
