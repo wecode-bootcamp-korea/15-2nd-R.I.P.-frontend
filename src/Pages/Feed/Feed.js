@@ -44,34 +44,44 @@ const Feed = props => {
         </div>
         <div className="feedImo">
           {liked ? (
-            <img
-              src="/images/whiteHeart.png"
-              alt="liked"
-              onClick={() => setLiked(false)}
-            />
+            <>
+              <img
+                src="/images/whiteHeart.png"
+                alt="liked"
+                onClick={() => setLiked(false)}
+              />
+              <span>{props.likes}</span>
+            </>
           ) : (
-            <img
-              src="/images/heart.png"
-              alt="liked"
-              onClick={() => setLiked(true)}
-            />
+            <>
+              <img
+                src="/images/heart.png"
+                alt="liked"
+                onClick={() => setLiked(true)}
+              />
+              <span>{props.likes + 1}</span>
+            </>
           )}
 
-          <span>{props.likes}</span>
           {word ? (
-            <img
-              src="/images/whiteBubble.png"
-              alt="말풍선"
-              onClick={() => setWord(false)}
-            />
+            <>
+              <img
+                src="/images/whiteBubble.png"
+                alt="말풍선"
+                onClick={() => setWord(false)}
+              />
+              <span>{props.addComment}</span>
+            </>
           ) : (
-            <img
-              src="/images/bubble.png"
-              alt="말풍선"
-              onClick={() => setWord(true)}
-            />
+            <>
+              <img
+                src="/images/bubble.png"
+                alt="말풍선"
+                onClick={() => setWord(true)}
+              />
+              <span>{props.addComment + 1}</span>
+            </>
           )}
-          <span>{props.addComment}</span>
         </div>
       </FeedTBottom>
     </FullFeed>
@@ -93,7 +103,7 @@ const FullFeed = styled.div`
     transform: scale(1.03);
     transition: all 0.3s ease-in-out;
     background-color: #fff;
-    box-shadow: 1px 1px 20px #3091ff;
+    box-shadow: 1px 1px 20px #c4c4c4;
   }
 `;
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Feed from "./Feed";
+import { useInfiniteScroll } from "../../Components/InfiniteScroll";
 
 const FeedPage = () => {
   const [data, setData] = useState([]);
@@ -11,13 +12,19 @@ const FeedPage = () => {
       .then(res => setData(res.data));
   }, []);
 
+  const productList = useInfiniteScroll("/data/feed.json");
+  console.log(productList);
+
   return (
     <>
       <FeedHeaderTitle>R.I.P FEED</FeedHeaderTitle>
       <FeedPageFullContainer>
-        {data.map(card => {
+        {/* {data.map(card => { */}
+        {productList?.map((card, idx) => {
           return (
             <Feed
+              list={card}
+              key={idx}
               // id={card.id}
               userName={card.userName}
               uplodadTime={card.uplodadTime}
