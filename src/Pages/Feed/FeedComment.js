@@ -10,6 +10,36 @@ class FeedComment extends Component {
     };
   }
 
+  //백엔드에게 데이터 전송
+  postDataToDb = () => {
+    const commentValue = this.state;
+    fetch("backURL", {
+      method: "POST",
+      headers: {
+        Authorization: localStorage.getItem("ACCESS_TOKEN"),
+      },
+      body: JSON.stringify({
+        commentValue: commentValue,
+      }),
+    });
+  };
+
+  //실행 시킴으로 postDataToDb가 실행되면 value값 전송
+  onkeyPressEnter = e => {
+    console.log(this.onkeyPressEnter);
+    if (e.key === "Enter") {
+      this.postDataToDb();
+    }
+  };
+
+  //토큰 없을 시 댓글 불가능
+  haveLoginToken = () => {
+    if (!localStorage.getItem("ACCESS_TOKEN")) {
+      alert("로그인이 필요합니다.");
+    }
+  };
+
+  //댓글 삭제기능
   handleDelete = e => {
     const { commentList } = this.state;
     const delCommentBtnBox = commentList.filter(item => {
@@ -20,6 +50,7 @@ class FeedComment extends Component {
     });
   };
 
+  //댓글 기능
   addComment = e => {
     e.preventDefault();
     const { commentList, commentValue } = this.state;
@@ -35,6 +66,7 @@ class FeedComment extends Component {
     });
   };
 
+  //comment value값들
   handleCommenmtValue = e => {
     this.setState({
       commentValue: e.target.value,
@@ -81,8 +113,10 @@ class FeedComment extends Component {
             <input
               value={this.state.commentValue}
               onChange={this.handleCommenmtValue}
+              onClick={this.haveLoginToken}
               type="text"
               placeholder="댓글달기.."
+              onKeyPress={this.onkeyPressEnter}
             />
           </span>
           <button onClick={this.addComment}>게시</button>

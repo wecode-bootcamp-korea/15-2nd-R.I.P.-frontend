@@ -147,5 +147,5 @@ const IsLoadingMode = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 350px;
+  margin-top: 390px;
 `;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Feed = props => {
   const [liked, setLiked] = useState(true);
@@ -35,7 +36,7 @@ const Feed = props => {
             </span>
           ) : (
             <span>
-              <span>{props.comment.slice(0, 5)}</span>
+              <span>{props.comment.slice(0, 10)}</span>
               <span className="showAnother" onClick={() => setClosed(true)}>
                 ...더보기
               </span>
@@ -65,11 +66,13 @@ const Feed = props => {
 
           {word ? (
             <>
-              <img
-                src="/images/whiteBubble.png"
-                alt="말풍선"
-                onClick={() => setWord(false)}
-              />
+              <Link to="/FeedComment">
+                <img
+                  src="/images/whiteBubble.png"
+                  alt="말풍선"
+                  onClick={() => setWord(false)}
+                />
+              </Link>
               <span>{props.addComment}</span>
             </>
           ) : (
