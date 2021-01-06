@@ -24,11 +24,7 @@ class Routes extends React.Component {
           <ThemeProvider theme={theme}>
             {/* <Navigation /> */}
             <Switch>
-<<<<<<< HEAD
               <Route exact path="/StandardSignUp" component={StandardSignUp} />
-=======
-              <Route exact path="/CategoryNav" component={CategoryNav} />
->>>>>>> 3ea23ac... Modify: 코드 리팩토링 완료
               <Route exact path="/" component={Main} />
               <Route exact path="/SignIn" component={SignIn} />
               <Route exact path="/SignUp" component={SignUp} />
