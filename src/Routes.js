@@ -26,7 +26,6 @@ class Routes extends React.Component {
             {/* <Navigation /> */}
             <Switch>
               <Route exact path="/FeedComment" component={FeedComment} />
-
               <Route exact path="/FeedPage" component={FeedPage} />
               <Route exact path="/Feed" component={Feed} />
               <Route exact path="/" component={Main} />
