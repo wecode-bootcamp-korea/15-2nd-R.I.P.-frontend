@@ -28,7 +28,7 @@ const Feed = props => {
         <div className="feedComment">
           {closed ? (
             <span>
-              <span>{props.comment.slice(0, 500)}</span>
+              <span>{props.comment.slice(0, 100)}</span>
               <span className="showAnother" onClick={() => setClosed(false)}>
                 ...숨기기
               </span>

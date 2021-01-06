@@ -10,6 +10,7 @@ import reset from "styled-reset";
 import theme from "./Styles/theme";
 import Feed from "./Pages/Feed/Feed";
 import FeedPage from "./Pages/Feed/FeedPage";
+import FeedComment from "./Pages/Feed/FeedComment";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -24,6 +25,8 @@ class Routes extends React.Component {
           <ThemeProvider theme={theme}>
             {/* <Navigation /> */}
             <Switch>
+              <Route exact path="/FeedComment" component={FeedComment} />
+
               <Route exact path="/FeedPage" component={FeedPage} />
               <Route exact path="/Feed" component={Feed} />
               <Route exact path="/" component={Main} />
