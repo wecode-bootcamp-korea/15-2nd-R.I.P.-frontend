@@ -10,6 +10,8 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import reset from "styled-reset";
 import theme from "./Styles/theme";
 import CategoryNav from "./Components/Navigation/CategoryNav";
+import Activity from "./Pages/Activity/Activity";
+import ModalFilter from "./Pages/Activity/ModalFilter";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -24,6 +26,9 @@ class Routes extends React.Component {
           <ThemeProvider theme={theme}>
             <Navigation />
             <Switch>
+              <Route exact path="/ModalFilter" component={ModalFilter} />
+              <Route exact path="/Activity" component={Activity} />
+              <Route exact path="/CategoryNav" component={CategoryNav} />
               <Route exact path="/StandardSignUp" component={StandardSignUp} />
               <Route exact path="/" component={Main} />
               <Route exact path="/SignIn" component={SignIn} />

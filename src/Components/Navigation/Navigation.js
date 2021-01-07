@@ -105,7 +105,7 @@ class Navigation extends Component {
                 <CategoryImoBox>
                   <img
                     className="middleNavImo"
-                    src="/images/bookmark.png"
+                    src="/images/bookmarked.png"
                     alt="bookmark"
                   />
                   <div className="explainImo">저장</div>
