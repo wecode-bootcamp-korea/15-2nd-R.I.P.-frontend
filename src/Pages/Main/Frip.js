@@ -5,7 +5,8 @@ import { MAINFRIP } from "../../config";
 
 function Frip() {
   const [mainFripData, setMainFripData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
 
   useEffect(() => {
     getFripData();
@@ -14,12 +15,9 @@ function Frip() {
   const getFripData = async () => {
     const result = await axios(MAINFRIP);
     setMainFripData(result.data.product_list);
-    setIsLoading(true);
+    setIsLoading(false);
   };
 
-  // const toggleBookmark = e => {
-  //   setMainFripData(...mainFripData, )
-  // };
 
   return (
     <Rip>
@@ -42,8 +40,11 @@ function Frip() {
             <FripInfo>
               <span className="fripsubTitle">{item.subtitle}</span>
               <span className="fripTitlePrice">{item.title}</span>
-              <span className="fripTitlePrice">{item.price}원</span>
-              <span className="fripRating">👑{item.star_rating} / 5</span>
+              <span className="fripTitlePrice">
+                {Math.floor(item.price).toLocaleString()} 원
+              </span>
+              <span className="fripRating">👑{item.star_rating}</span>
+
             </FripInfo>
           </FripContainer>
         ))}

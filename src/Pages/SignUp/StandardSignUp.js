@@ -89,7 +89,6 @@ class StandardSignUp extends Component {
   };
 
   render() {
-    const { email, id, pw, nickname, phone_number } = this.state;
     return (
       <>
         {this.state.isLoading ? (

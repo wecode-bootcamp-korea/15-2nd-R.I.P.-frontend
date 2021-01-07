@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { KAKAO_SIGNUP } from "../../config";
@@ -42,9 +42,7 @@ function SignUp() {
           {HARD_CODING.map((element, index) => (
             <div key={index} className="explainSignUp">
               {element.title}
-              <div key={index} className="subtitleSignUp">
-                {element.subtitle}
-              </div>
+              <div className="subtitleSignUp">{element.subtitle}</div>
             </div>
           ))}
           <button className="signUpBtn" onClick={kakaoLogin}>
