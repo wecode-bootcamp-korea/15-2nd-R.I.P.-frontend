@@ -1,14 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { useState, useEffect } from "react";
 
 const Modal = () => (
   <ModalFullWrapper>
     <FullModal>
       <ModalPage>
         <p>인기 검색어</p>
-        {MODAL_BUTTON.BUTTON_NAME.map(element => (
-          <button>{element}</button>
+        {MODAL_BUTTON.BUTTON_NAME.map((element, index) => (
+          <button key={index}>{element}</button>
         ))}
       </ModalPage>
     </FullModal>

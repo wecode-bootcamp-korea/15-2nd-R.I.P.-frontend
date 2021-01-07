@@ -8,7 +8,7 @@ const { Kakao } = window;
 function SignIn(props) {
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
-  const [token, setToken] = useState("");
+  const [nickName, setNickName] = useState("");
   const history = useHistory();
 
   const logInSign = () => {
@@ -23,7 +23,10 @@ function SignIn(props) {
       .then(res => {
         if (res.MESSAGE === "SUCCESS") {
           alert("Login SUCCESS");
+          console.log(res);
           localStorage.setItem("token", res.ACCESS_TOKEN);
+          localStorage.setItem("NICKNAME", res.nickname);
+          setNickName(res.nickname);
           history.push("/");
         } else alert("TRY AGAIN");
       });

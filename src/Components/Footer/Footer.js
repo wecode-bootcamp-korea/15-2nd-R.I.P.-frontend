@@ -71,8 +71,8 @@ const FooterContainer = styled.div`
   height: 640px;
   padding: 40px 20px 69px;
   font-size: 12px;
-  position: absolute;
   bottom: 0;
+  margin-top: 40px;
 `;
 
 const Container = styled.div`

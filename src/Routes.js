@@ -22,14 +22,15 @@ class Routes extends React.Component {
         <GlobalStyle />
         <Router>
           <ThemeProvider theme={theme}>
-            {/* <Navigation /> */}
+            <Navigation />
             <Switch>
               <Route exact path="/StandardSignUp" component={StandardSignUp} />
+              <Route exact path="/CategoryNav" component={CategoryNav} />
               <Route exact path="/" component={Main} />
               <Route exact path="/SignIn" component={SignIn} />
               <Route exact path="/SignUp" component={SignUp} />
             </Switch>
-            {/* <Footer /> */}
+            <Footer />
           </ThemeProvider>
         </Router>
       </>

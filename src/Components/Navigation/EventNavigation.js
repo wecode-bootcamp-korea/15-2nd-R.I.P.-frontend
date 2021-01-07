@@ -19,8 +19,12 @@ class EventNavigation extends Component {
             <span className="subNaviTitle">건강 뷰티</span>
             <span className="subNaviTitle">모임</span>
             <div className="subNaviSubTitle">
-              {SUB_NAVI.map(element => {
-                return <span className="subNaviElement">{element}</span>;
+              {SUB_NAVI.map((element, index) => {
+                return (
+                  <span className="subNaviElement" key={index}>
+                    {element}
+                  </span>
+                );
               })}
             </div>
           </div>

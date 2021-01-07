@@ -7,8 +7,13 @@ import Modal from "./Modal";
 class Navigation extends Component {
   constructor() {
     super();
-    this.state = { subNavigationToggle: false, modalToggle: false };
+    this.state = {
+      subNavigationToggle: false,
+      modalToggle: false,
+      NICKNAME: localStorage.getItem("NICKNAME"),
+    };
   }
+
   toggleSubNav = () => {
     this.setState({
       subNavigationToggle: !this.state.subNavigationToggle,
@@ -22,13 +27,13 @@ class Navigation extends Component {
   };
 
   render() {
-    const ifYouGetToken = localStorage.getItem("kakao_access_token") ? (
+    const ifYouGetToken = localStorage.getItem("NICKNAME") ? (
       <>
         <span>{localStorage.getItem("NICKNAME")}</span>
         <span
           onClick={() => {
             localStorage.clear();
-            this.props.history.push("/");
+            this.setState({ NICKNAME: "" });
           }}
         >
           로그아웃
@@ -73,7 +78,7 @@ class Navigation extends Component {
                   <div className="explainImo">카테고리</div>
                 </CategoryImoBox>
                 <span className="mainMiddleLogo">
-                  <Link to="/Navigation">
+                  <Link to="/">
                     <img
                       className="mainLogo"
                       src="/images/logo.png"
