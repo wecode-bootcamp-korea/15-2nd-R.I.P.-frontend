@@ -10,7 +10,18 @@ class FeedComment extends Component {
     };
   }
 
+  //백엔드 데이터베이스 댓글 가지고오기
+  // componentDidMount() {
+  //   fetch("http://10.168.2.91:8000/board/feed/comment/2")
+  //     .then(res => res.json())
+  //     .then(res =>
+  //       this.setState({
+  //         commentList: res.FEED_COMMENT_LIST,
+  //       })
+  //     );
+  // }
   //백엔드에게 데이터 전송
+
   postDataToDb = () => {
     const commentValue = this.state;
     console.log(commentValue.commentValue);
