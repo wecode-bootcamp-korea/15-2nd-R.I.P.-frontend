@@ -7,6 +7,7 @@ function Frip() {
   const [mainFripData, setMainFripData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+
   useEffect(() => {
     getFripData();
   }, [setMainFripData]);
@@ -16,6 +17,7 @@ function Frip() {
     setMainFripData(result.data.product_list);
     setIsLoading(false);
   };
+
 
   return (
     <Rip>
@@ -42,6 +44,7 @@ function Frip() {
                 {Math.floor(item.price).toLocaleString()} 원
               </span>
               <span className="fripRating">👑{item.star_rating}</span>
+
             </FripInfo>
           </FripContainer>
         ))}
