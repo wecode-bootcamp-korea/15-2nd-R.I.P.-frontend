@@ -12,10 +12,10 @@ const FeedPage = () => {
   };
 
   useEffect(() => {
-    fetch("/data/feed.json")
+    fetch("http://10.168.2.91:8000/board/feed_list")
       .then(res => res.json())
       .then(res => {
-        setData(res.data);
+        setData(res.feed_list);
         setIsLoading(false);
       });
   }, []);
@@ -36,11 +36,13 @@ const FeedPage = () => {
                     return (
                       <Feed
                         id={card.id}
-                        userName={card.userName}
-                        uplodadTime={card.uplodadTime}
-                        imgTitle={card.imgTitle}
-                        comment={card.comment}
-                        likes={card.likes}
+                        // proImage={card.profile_image}
+                        userName={card.nickname}
+                        uplodadTime={card.created_at}
+                        mainImg={card.feed_image[0].url}
+                        imgTitle={card.product_name}
+                        comment={card.contents}
+                        likes={card.feed_like_count}
                         addComment={card.addComment}
                       />
                     );
@@ -49,11 +51,13 @@ const FeedPage = () => {
                     return (
                       <Feed
                         id={card.id}
-                        userName={card.userName}
-                        uplodadTime={card.uplodadTime}
-                        imgTitle={card.imgTitle}
-                        comment={card.comment}
-                        likes={card.likes}
+                        profile_image={card.profile_image}
+                        userName={card.nickname}
+                        uplodadTime={card.created_at}
+                        mainImg={card.feed_image[0].url}
+                        imgTitle={card.product_name}
+                        comment={card.contents}
+                        likes={card.feed_like_count}
                         addComment={card.addComment}
                       />
                     );

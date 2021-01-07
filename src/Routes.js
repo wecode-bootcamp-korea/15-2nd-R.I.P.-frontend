@@ -23,7 +23,7 @@ class Routes extends React.Component {
         <GlobalStyle />
         <Router>
           <ThemeProvider theme={theme}>
-            {/* <Navigation /> */}
+            <Navigation />
             <Switch>
               <Route exact path="/FeedComment" component={FeedComment} />
               <Route exact path="/FeedPage" component={FeedPage} />
@@ -32,7 +32,7 @@ class Routes extends React.Component {
               <Route exact path="/SignIn" component={SignIn} />
               <Route exact path="/SignUp" component={SignUp} />
             </Switch>
-            {/* <Footer /> */}
+            <Footer />
           </ThemeProvider>
         </Router>
       </>

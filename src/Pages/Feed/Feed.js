@@ -2,7 +2,17 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const Feed = props => {
+const Feed = ({
+  id,
+  userName,
+  uplodadTime,
+  imgTitle,
+  comment,
+  likes,
+  addComment,
+  mainImg,
+  // proImage,
+}) => {
   const [liked, setLiked] = useState(true);
   const [word, setWord] = useState(true);
   const [closed, setClosed] = useState(false);
@@ -12,8 +22,8 @@ const Feed = props => {
       <FeedTop>
         <img className="userImg" src="/images/boy.png" alt="user" />
         <span>
-          <div className="userNick">{props.userName}</div>
-          <div className="userAdmitTime">{`${props.uplodadTime}minutes`}</div>
+          <div className="userNick">{userName}</div>
+          <div className="userAdmitTime">{`${uplodadTime}minutes`}</div>
         </span>
         <div>
           <img className="feedEtc" src="/images/menu.png" alt="etc" />
@@ -21,22 +31,22 @@ const Feed = props => {
       </FeedTop>
 
       <FeedMid>
-        <img className="feedMainImg" src="/images/coding.png" alt="png" />
+        <img className="feedMainImg" src={mainImg} alt="png" />
       </FeedMid>
 
       <FeedTBottom>
-        <div className="titleOfImg">&nbsp;&nbsp;{props.imgTitle}</div>
+        <div className="titleOfImg">&nbsp;&nbsp;{imgTitle}</div>
         <div className="feedComment">
           {closed ? (
             <span>
-              <span>{props.comment.slice(0, 100)}</span>
+              <span>{comment.slice(0, 100)}</span>
               <span className="showAnother" onClick={() => setClosed(false)}>
                 ...숨기기
               </span>
             </span>
           ) : (
             <span>
-              <span>{props.comment.slice(0, 10)}</span>
+              <span>{comment.slice(0, 10)}</span>
               <span className="showAnother" onClick={() => setClosed(true)}>
                 ...더보기
               </span>
@@ -51,7 +61,7 @@ const Feed = props => {
                 alt="liked"
                 onClick={() => setLiked(false)}
               />
-              <span>{props.likes}</span>
+              <span>{likes}</span>
             </>
           ) : (
             <>
@@ -60,7 +70,7 @@ const Feed = props => {
                 alt="liked"
                 onClick={() => setLiked(true)}
               />
-              <span>{props.likes + 1}</span>
+              <span>{likes + 1}</span>
             </>
           )}
 
@@ -73,7 +83,7 @@ const Feed = props => {
                   onClick={() => setWord(false)}
                 />
               </Link>
-              <span>{props.addComment}</span>
+              <span>{addComment}</span>
             </>
           ) : (
             <>
@@ -82,7 +92,7 @@ const Feed = props => {
                 alt="말풍선"
                 onClick={() => setWord(true)}
               />
-              <span>{props.addComment + 1}</span>
+              <span>{addComment + 1}</span>
             </>
           )}
         </div>
@@ -115,7 +125,6 @@ const FeedTop = styled.section`
   height: 45px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid black;
 
   img {
     border-radius: 50%;
@@ -142,7 +151,7 @@ const FeedTop = styled.section`
   .feedEtc {
     width: 20px;
     height: 20px;
-    margin-left: 215px;
+    margin-left: 105px;
   }
 `;
 

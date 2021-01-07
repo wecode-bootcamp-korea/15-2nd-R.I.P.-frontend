@@ -13,13 +13,16 @@ class FeedComment extends Component {
   //백엔드에게 데이터 전송
   postDataToDb = () => {
     const commentValue = this.state;
-    fetch("backURL", {
+    console.log(commentValue.commentValue);
+    fetch("http://10.168.2.91:8000/board/feed/comment/2", {
       method: "POST",
-      headers: {
-        Authorization: localStorage.getItem("ACCESS_TOKEN"),
-      },
+      // headers: {
+      //   Authorization: localStorage.getItem("ACCESS_TOKEN"),
+      // },
       body: JSON.stringify({
-        commentValue: commentValue,
+        author_id: 1,
+        review_id: 2,
+        contents: commentValue.commentValue,
       }),
     });
   };
@@ -33,11 +36,11 @@ class FeedComment extends Component {
   };
 
   //토큰 없을 시 댓글 불가능
-  haveLoginToken = () => {
-    if (!localStorage.getItem("ACCESS_TOKEN")) {
-      alert("로그인이 필요합니다.");
-    }
-  };
+  // haveLoginToken = () => {
+  //   if (!localStorage.getItem("ACCESS_TOKEN")) {
+  //     alert("로그인이 필요합니다.");
+  //   }
+  // };
 
   //댓글 삭제기능
   handleDelete = e => {
