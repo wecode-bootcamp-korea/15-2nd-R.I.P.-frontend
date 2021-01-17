@@ -62,8 +62,8 @@
 
 _-_ **MainPage onClick**
 
-[![image](<img width="1260" alt="스크린샷 2021-01-10 오후 4 30 58" src="https://user-images.githubusercontent.com/62928948/104841125-a43d7180-5909-11eb-8168-f8ebd30bdafc.png">
-)](https://www.youtube.com/watch?v=n6bdeVMLE1g&t=48s)
+[<img width="1260" alt="스크린샷 2021-01-10 오후 4 30 58" src="https://user-images.githubusercontent.com/62928948/104841125-a43d7180-5909-11eb-8168-f8ebd30bdafc.png">
+](https://www.youtube.com/watch?v=n6bdeVMLE1g)
 
 ## Member Info
 
@@ -73,6 +73,7 @@ _-_ **MainPage onClick**
 - Position : Front-end
 - Stack : React / Styled-Component / Router
 - Works : 메인 페이지 / 상품 디테일 페이지 / 상품 문의하기 게시판 / 상품 결제 프로세스 / footer
+- 프로젝트 후기 블로그 : [후기](https://velog.io/@9bin08/2%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-R.I.P-%ED%9A%8C%EA%B3%A0%EB%A1%9D)
 
 [메인 페이지]
 
@@ -124,7 +125,7 @@ _-_ **MainPage onClick**
 - Position : Front-end
 - Stack : React / Styled-Component / Router
 - Works :
-
+- 프로젝트 후기 블로그 :
 1.
 2.
 3.
