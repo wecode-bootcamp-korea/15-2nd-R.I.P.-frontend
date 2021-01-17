@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "img": "images/product_banner_1563169919176_929942.jpeg",
+      "title": "국내 최초 1박2일 혼펜(1월 3일까지 비대면 모드)",
+      "price": "139,000원",
+      "rating": 4.93,
+      "reviewcount": 177,
+      "address": "선릉 위워크 2호점",
+      "host": {
+        "hostimg": "/images/logo.png",
+        "hostname": "팝콘하우스",
+        "countfrip": 3,
+        "countreview": 255,
+        "bookmark": true
+      }
+    }
+  ]
+}

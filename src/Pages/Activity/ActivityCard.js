@@ -1,51 +1,31 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { MAINFRIP, SERVER } from "../../config";
-import { withRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function Frip(props) {
-  const [mainFripData, setMainFripData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    getFripData();
-  }, [setMainFripData]);
-
-  const getFripData = async () => {
-    const result = await axios(
-      `${SERVER}/product/list?order=${props.order}&category=8&offset=0&limit=4`
-    );
-    setMainFripData(result.data.product_list);
-    setIsLoading(false);
-  };
-
+function ActivityCard({ product, isLoading }) {
   return (
     <Rip>
       {!isLoading &&
-        mainFripData.map((item, index) => (
+        product.map((item, index) => (
           <Link key={item.id} to={{ pathname: `detail/${item.id}` }}>
             <FripContainer>
               <FripImgarea>
-                <img src={item.image_url} alt={item.title} id={item.id} />
+                <img src={item.image_url} alt={item.title} />
                 <img
                   id={item.bookmark}
                   className="bookmark"
-                  src={
-                    item.bookmark
-                      ? "images/다운로드 (1).svg"
-                      : "images/다운로드 (2).svg"
-                  }
+                  src="/images/bookmark.png"
                   alt={item.title}
+                  bookmark={item.bookmark}
                 />
               </FripImgarea>
               <FripInfo>
                 <span className="fripsubTitle">{item.subtitle}</span>
                 <span className="fripTitlePrice">{item.title}</span>
                 <span className="fripTitlePrice">
-                  {Math.floor(item.price).toLocaleString()} 원
+                  {Math.floor(item.price).toLocaleString()}원
                 </span>
-                <span className="fripRating">👑{item.star_rating}</span>
+                <span className="fripRating">👑{item.star_rating} / 5</span>
               </FripInfo>
             </FripContainer>
           </Link>
@@ -54,7 +34,7 @@ function Frip(props) {
   );
 }
 
-export default withRouter(Frip);
+export default ActivityCard;
 
 const Rip = styled.div`
   display: flex;
@@ -64,6 +44,10 @@ const Rip = styled.div`
   font-size: 12px;
   line-height: 16px;
   color: rgb(170, 170, 170);
+  display: grid;
+  justify-content: space-between;
+  grid-template-rows: repeat(5, 330px);
+  grid-template-columns: repeat(4, 180.75px);
 
   a {
     text-decoration: none;
@@ -91,7 +75,7 @@ const FripImgarea = styled.div`
     width: 20px;
     height: 18px;
     top: 10px;
-    right: 10px;
+    right: -20px;
   }
 `;
 

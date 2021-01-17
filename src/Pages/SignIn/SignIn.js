@@ -66,6 +66,7 @@ function SignIn(props) {
           .then(res => {
             console.log(res);
             localStorage.setItem("kakao_access_token", res.ACCESS_TOKEN);
+            localStorage.setItem("NICKNAME", res.NICKNAME);
             if (res.ACCESS_TOKEN) {
               alert("KAKAO LOGIN SUCCESS");
               history.push("/");

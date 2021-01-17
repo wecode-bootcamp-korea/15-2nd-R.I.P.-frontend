@@ -1,15 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const CategoryNav = props => {
   return (
     <FullContent>
-      <div>
-        <p>🐯액티비티</p>
-        {CATEGORY.ACTIVITY.map(element => {
-          return <button className="act">{element}</button>;
-        })}
-      </div>
+      <Link to="/Activity">
+        <div>
+          <p>🐯액티비티</p>
+          {CATEGORY.ACTIVITY.map(element => {
+            return <button className="act">{element}</button>;
+          })}
+        </div>
+      </Link>
       <div>
         <p>🙈배움</p>
         {CATEGORY.LEARNING.map(element => {
@@ -95,7 +98,10 @@ const FullContent = styled.div`
     letter-spacing: -0.6px;
     margin-bottom: 15px;
   }
-
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
   button {
     color: rgb(51, 51, 51);
     border: none;

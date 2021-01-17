@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import EventNavigation from "./EventNavigation";
 import styled from "styled-components";
 import Modal from "./Modal";
@@ -26,11 +26,23 @@ class Navigation extends Component {
     });
   };
 
+  moveToPage = () => {
+    this.props.history.push("/FeedPage");
+  };
+
+  searchActivity = e => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
   render() {
+    console.log(this.searchInput);
     const ifYouGetToken = localStorage.getItem("NICKNAME") ? (
-      <>
+      <LogOut>
         <span>{localStorage.getItem("NICKNAME")}</span>
         <span
+          className="out"
           onClick={() => {
             localStorage.clear();
             this.setState({ NICKNAME: "" });
@@ -40,7 +52,7 @@ class Navigation extends Component {
         </span>
         <span>자주묻는 질문</span>
         <span>공지사항</span>
-      </>
+      </LogOut>
     ) : (
       <>
         <Link to="/SignUP">
@@ -53,6 +65,7 @@ class Navigation extends Component {
         <span>공지사항</span>
       </>
     );
+
     return (
       <div>
         <FullNavBar>
@@ -92,6 +105,8 @@ class Navigation extends Component {
                     type="text"
                     placeholder="검색어를 입력해 주세요."
                     onClick={this.handleModal}
+                    name="searchInput"
+                    onChange={this.searchActivity}
                   />
                   <img
                     className="loupeImo"
@@ -99,7 +114,8 @@ class Navigation extends Component {
                     alt="loupe"
                   />
                 </SearchBoxInNav>
-                <CategoryImoBox>
+
+                <CategoryImoBox onClick={this.moveToPage}>
                   <img
                     className="middleNavImo"
                     src="/images/book.png"
@@ -107,6 +123,7 @@ class Navigation extends Component {
                   />
                   <div className="explainImo">피드</div>
                 </CategoryImoBox>
+
                 <CategoryImoBox>
                   <img
                     className="middleNavImo"
@@ -144,15 +161,19 @@ class Navigation extends Component {
   }
 }
 
-export default Navigation;
-
+export default withRouter(Navigation);
+const LogOut = styled.div`
+  .out {
+    cursor: pointer;
+  }
+`;
 const FullNavBar = styled.div`
   height: 176px;
   display: flex;
   position: relative;
   justify-content: center;
   border-bottom: 1px solid #ebebeb;
-  z-index: 600;
+  z-index: 99;
   background-color: #fff;
 
   .topMax {

@@ -56,6 +56,6 @@ export const flexColumnAlign = css`
 
 export const flexrowAlign = css`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 `;

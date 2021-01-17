@@ -66,7 +66,6 @@ function Footer() {
 export default Footer;
 
 const FooterContainer = styled.div`
-  width: 100%;
   background-color: #f8f8f8;
   height: 640px;
   padding: 40px 20px 69px;

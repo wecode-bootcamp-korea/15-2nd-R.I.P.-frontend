@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { SIGN_UP_PHONECHECK } from "../../config";
-import { FINAL_SIGNUP } from "../../config";
+import { SIGN_UP_PHONECHECK, FINAL_SIGNUP } from "../../config";
+
 import { PHONE_CHECK } from "../../config";
 
 class StandardSignUp extends Component {

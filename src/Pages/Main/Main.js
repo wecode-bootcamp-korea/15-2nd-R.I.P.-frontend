@@ -13,6 +13,7 @@ import poster3 from "./images/Web_기획전_1860x744_1608174788243.jpeg";
 import main1 from "./images/Web_main1.jpeg";
 import main2 from "./images/Web_main2.jpeg";
 import main3 from "./images/Web_main3.jpeg";
+import { withRouter } from "react-router-dom";
 
 function Main() {
   return (
@@ -22,8 +23,8 @@ function Main() {
           <OptionSlide img1={main2} img2={main1} img3={main3} count="2" />
         </ImgBox>
         <MainCategory />
-        <MainTitle h2="월간 가장 인기 있는 프립" span="전체보기" />
-        <Frip />
+        <MainTitle h2="월간 가장 인기 있는 프립 🎇" span="전체보기" />
+        <Frip order="sales_rate" />
         <OptionSlide
           primary
           height="100px"
@@ -32,8 +33,8 @@ function Main() {
           img3={banner3}
           count="2"
         />
-        <MainTitle h2="MD 추천 프립 ✨" span="전체보기" />
-        <Frip />
+        <MainTitle h2="높은 가격 순 ✨" span="전체보기" />
+        <Frip order="-price" />
         <MainTitle h2="기획전" span="전체보기" />
         <OptionSlide img1={poster1} img2={poster2} img3={poster3} count="2" />
       </Center>
@@ -41,7 +42,7 @@ function Main() {
   );
 }
 
-export default Main;
+export default withRouter(Main);
 
 const MainContainer = styled.div`
   width: 100%;

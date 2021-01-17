@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 class EventNavigation extends Component {
   constructor() {
@@ -14,7 +15,9 @@ class EventNavigation extends Component {
       <div>
         <EventNavBar>
           <div className="subNaviContents">
-            <span className="subNaviTitle">액티비티</span>
+            <Link to={{ pathname: "/Activity" }}>
+              <span className="subNaviTitle">액티비티</span>
+            </Link>
             <span className="subNaviTitle">배움</span>
             <span className="subNaviTitle">건강 뷰티</span>
             <span className="subNaviTitle">모임</span>
@@ -52,6 +55,10 @@ const EventNavBar = styled.div`
   height: 137px;
   background: linear-gradient(279deg, rgb(98, 201, 255), rgb(51, 151, 255));
 
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
   .subNaviContents {
     max-width: 808px;
     margin: 0 auto;
