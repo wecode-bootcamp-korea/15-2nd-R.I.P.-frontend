@@ -1,6 +1,7 @@
 # R.I.P
 
-![R.I.P](http://localhost:3001/images/logo.png)
+![logo](https://user-images.githubusercontent.com/62928948/104840077-8f141300-5908-11eb-8e86-f41394226746.png)
+
 
 - **Team_name** : R.I.P
 - **Team_member** : 김규빈, 김영재 , 김원희 , 이현주 , 박채훈, 한준희
